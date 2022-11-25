@@ -109,7 +109,7 @@ export class Alerts extends React.Component<IAlertProps, IAlertState> {
   };
 
   private _getClosedAlerts = (): Array<number> => {
-    var obj: Array<number> = this._storage.session.get(this._storageKey);
+    var obj: Array<number> = this._storage.local.get(this._storageKey);
     return obj;
   };
 
@@ -124,6 +124,6 @@ export class Alerts extends React.Component<IAlertProps, IAlertState> {
       closedAlerts = new Array<number>();
       closedAlerts.push(id);
     }
-    this._storage.session.put(this._storageKey, closedAlerts);
+    this._storage.local.put(this._storageKey, closedAlerts);
   };
 }
